@@ -1,0 +1,185 @@
+.nav, .pagination, .carousel, .panel-title a. .square { cursor: pointer; }
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.navbar-header img { max-height: 50px } /** Or the width you want to associate **/
+
+body {
+    -webkit-font-smoothing: antialiased;  
+    /* padding top by nav height */
+    padding-top: 60px;  
+}
+
+.square {
+    float:left;
+    position: relative;
+    width: 100%;
+    padding-bottom : 100%;  /*= width for a 1:1 aspect ratio */
+    margin: 5%;
+    background-color:rgba(20,5,138,0.5);
+    border-radius: 10%;
+    border: 2px solid #ccc;
+    overflow:hidden;
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+    color: rgba(255,255,255,0.8);
+}
+
+.square:hover{
+    background-color:rgba(5,138,138,0.4);
+}
+
+.square .content {
+    position: absolute; 
+    width:100%;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 20%;
+    padding-top: 20%;
+    margin: -2%;
+}
+.square .table{
+    display:table;
+    width:100%;
+    text-align: center;
+}
+.square .table-cell{
+    display:table-cell;
+    vertical-align:middle;    
+}
+
+.square i{  
+    font-weight:900;
+    font-size: 2em;    
+    color: rgba(255,255,255,0.5);
+}
+
+
+.animate-hide {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  line-height: 20px;
+  opacity: 1;
+}
+
+.animate-hide.ng-hide {
+  line-height: 0;
+  opacity: 0;
+}
+
+.example-animate-container {
+  background:white;
+  border:1px solid black;
+  list-style:none;
+  margin:0;
+  padding:0 10px;
+}
+
+.animate-repeat {
+  line-height:40px;
+  list-style:none;
+  box-sizing:border-box;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height:40px;
+}
+
+
+/* COLORPICKER */
+.colorPicker
+{
+    width:          67px;
+    height:         30px;
+    position: relative;
+    clear: both;
+    box-sizing:  content-box;
+}
+
+.colorPicker > * {
+  box-sizing: content-box;
+}
+
+.colorPicker .track {
+    background:     #EFEFEF url(../images/text-color.png) no-repeat 50% 50%;
+    height:         150px;
+    width:          150px;
+    padding:        10px;
+    position:       absolute;
+    cursor:         crosshair;
+    float:          left;
+    left:           55px;
+    top:            -71px;
+    display:        none;
+    border:         1px solid #ccc;
+    z-index:        10;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    border-radius: 150px;
+}
+.colorPicker .color {
+    width:          55px;
+    height:         25px;
+    line-height:    25px;
+    text-decoration : none;
+    padding:        1px;
+    border:         1px solid #ccc;
+    display:        block;
+    position:       relative;
+    z-index:        11;
+    color:           #666;
+    background-color: #EFEFEF;
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    border-radius: 27px;
+    cursor: crosshair;
+    padding: 0 0 0 10px;
+}
+
+.colorPicker .colorInner {
+    width:          25px;
+    height:         25px;
+    float: right;
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    border-radius: 27px;
+    border-left: 1px solid #ccc;
+}
+
+.colorPicker .dropdown {
+    list-style: none;
+    display: none;
+    width: 27px;
+    position: absolute;
+    top: 26px;
+    border: 1px solid #ccc;
+    left: 0;
+    z-index: 1000;
+}
+
+.colorPicker .dropdown li{
+    height: 25px;
+    cursor: pointer;
+}
+

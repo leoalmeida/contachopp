@@ -1,0 +1,310 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "rio-gig";
+  src:url("fonts/rio-gig.eot");
+  src:url("fonts/rio-gig.eot?#iefix") format("embedded-opentype"),
+    url("fonts/rio-gig.woff") format("woff"),
+    url("fonts/rio-gig.ttf") format("truetype"),
+    url("fonts/rio-gig.svg#rio-gig") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "rio-gig" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="rio-"]:before,
+[class*=" rio-"]:before {
+  font-family: "rio-gig" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.rio-gig-x:before {
+  content: "a";
+}
+.rio-gig-weather-weakrain:before {
+  content: "b";
+}
+.rio-gig-weather-sun:before {
+  content: "c";
+}
+.rio-gig-weather-storm:before {
+  content: "d";
+}
+.rio-gig-weather-snow:before {
+  content: "e";
+}
+.rio-gig-weather-rain:before {
+  content: "f";
+}
+.rio-gig-weather-night-weakrain:before {
+  content: "g";
+}
+.rio-gig-weather-night-snow:before {
+  content: "h";
+}
+.rio-gig-weather-night-rain:before {
+  content: "i";
+}
+.rio-gig-weather-night-heavyrain:before {
+  content: "j";
+}
+.rio-gig-weather-night-chancerain:before {
+  content: "k";
+}
+.rio-gig-taxi-fill:before {
+  content: "l";
+}
+.rio-gig-thunderbolt:before {
+  content: "m";
+}
+.rio-gig-weather-chancerain:before {
+  content: "n";
+}
+.rio-gig-weather-clouds:before {
+  content: "o";
+}
+.rio-gig-weather-day-chancerain:before {
+  content: "p";
+}
+.rio-gig-weather-day-clouds:before {
+  content: "q";
+}
+.rio-gig-weather-day-heavyrain:before {
+  content: "r";
+}
+.rio-gig-weather-day-rain:before {
+  content: "s";
+}
+.rio-gig-weather-day-snow:before {
+  content: "t";
+}
+.rio-gig-weather-fog:before {
+  content: "u";
+}
+.rio-gig-weather-day-weakrain:before {
+  content: "v";
+}
+.rio-gig-weather-frost:before {
+  content: "w";
+}
+.rio-gig-weather-heavyrain:before {
+  content: "x";
+}
+.rio-gig-taxi:before {
+  content: "y";
+}
+.rio-gig-plan-fill-side-wing:before {
+  content: "z";
+}
+.rio-gig-location-fill:before {
+  content: "A";
+}
+.rio-gig-check:before {
+  content: "B";
+}
+.rio-gig-location:before {
+  content: "C";
+}
+.rio-gig-pill:before {
+  content: "D";
+}
+.rio-gig-talk-fill:before {
+  content: "E";
+}
+.rio-gig-talk:before {
+  content: "F";
+}
+.rio-gig-pickaxe:before {
+  content: "G";
+}
+.rio-gig-hotel-bell:before {
+  content: "H";
+}
+.rio-gig-car-fill:before {
+  content: "I";
+}
+.rio-gig-cart:before {
+  content: "J";
+}
+.rio-gig-car:before {
+  content: "K";
+}
+.rio-gig-hanger:before {
+  content: "L";
+}
+.rio-gig-suspension-points:before {
+  content: "N";
+}
+.rio-gig-suitcase:before {
+  content: "O";
+}
+.rio-gig-hands-fill:before {
+  content: "Q";
+}
+.rio-gig-business-man-fill:before {
+  content: "R";
+}
+.rio-gig-business-man:before {
+  content: "S";
+}
+.rio-gig-hands:before {
+  content: "T";
+}
+.rio-gig-people-fill:before {
+  content: "U";
+}
+.rio-gig-star:before {
+  content: "V";
+}
+.rio-gig-people:before {
+  content: "X";
+}
+.rio-gig-hammer:before {
+  content: "Y";
+}
+.rio-gig-bus-fill:before {
+  content: "Z";
+}
+.rio-gig-brt-fill:before {
+  content: "0";
+}
+.rio-gig-gallon:before {
+  content: "1";
+}
+.rio-gig-onibus:before {
+  content: "2";
+}
+.rio-gig-plane-up:before {
+  content: "3";
+}
+.rio-gig-plus:before {
+  content: "4";
+}
+.rio-gig-newspaper:before {
+  content: "5";
+}
+.rio-gig-cuttlery:before {
+  content: "6";
+}
+.rio-gig-brt:before {
+  content: "7";
+}
+.rio-gig-bottles:before {
+  content: "8";
+}
+.rio-gig-cup:before {
+  content: "9";
+}
+.rio-gig-metro-fill:before {
+  content: "!";
+}
+.rio-gig-plane-side:before {
+  content: "\"";
+}
+.rio-gig-plane-fill-side:before {
+  content: "#";
+}
+.rio-gig-metro:before {
+  content: "$";
+}
+.rio-gig-circle-check-fill:before {
+  content: "%";
+}
+.rio-gig-arrow-up-down:before {
+  content: "&";
+}
+.rio-gig-arrow-down:before {
+  content: "@";
+}
+.rio-gig-circle-check:before {
+  content: "(";
+}
+.rio-gig-map:before {
+  content: ")";
+}
+.rio-gig-magnifying-glass:before {
+  content: ",";
+}
+.rio-gig-chemist:before {
+  content: "-";
+}
+.rio-gig-airport-guide:before {
+  content: ".";
+}
+.rio-gig-fb:before {
+  content: "/";
+}
+.rio-gig-twitter:before {
+  content: ":";
+}
+.rio-gig-share:before {
+  content: ";";
+}
+.rio-gig-googleplus:before {
+  content: "<";
+}
+.rio-gig-whatsapp:before {
+  content: "=";
+}
+.rio-gig-shopping:before {
+  content: "W";
+}
+.rio-gig-phone:before {
+  content: "M";
+}
+.rio-gig-phone-fill:before {
+  content: "P";
+}
+.rio-gig-arrow-left:before {
+  content: ">";
+}
+.rio-gig-arrow-right:before {
+  content: "'";
+}
+.rio-gig-arrow-up:before {
+  content: "?";
+}
+.rio-gig-instagram:before {
+  content: "[";
+}
+.rio-gig-arrow-down-fill:before {
+  content: "]";
+}
+.rio-gig-circle-arrow-down:before {
+  content: "^";
+}
+.rio-gig-smile-sad:before {
+  content: "_";
+}
+.rio-gig-plane-fill-departure-floor:before {
+  content: "{";
+}
+.rio-gig-plane-fill-arrival-floor:before {
+  content: "*";
+}
+.rio-gig-plane-fill-arrival:before {
+  content: "+";
+}
+.rio-gig-plane-fill-departure:before {
+  content: "`";
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboardDbApp">
+<head>
+    <meta charset="utf-8">	
+    <base href="/contachopp/index.html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <title>Mr. Conta Choppe</title>
+    
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="./icon.144.png"><!-- Opera Speed Dial, at least 144×114 px -->
+    <link rel="apple-touch-icon" type="image/png" href="./icon.57.png"><!-- iPhone -->
+    <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="./icon.72.png"><!-- iPad -->
+    <link rel="apple-touch-icon" type="image/png" sizes="114x114" href="./icon.114.png"><!-- iPhone4 -->
+       
+    <!-- Bootstrap -->   
+    <link rel="stylesheet" href="./stylesheets/bootstrap.min.css" type="text/css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./fonts/icon-fonts/font-awesome-4.2.0/css/font-awesome.min.css"  type="text/css" />
+    <!-- App Theme -->
+    <link rel="stylesheet" href="./stylesheets/theme-style.css" type="text/css" />    
+    <link rel="stylesheet" href="./stylesheets/dashboard.css" type="text/css" />
+    
+    <!-- Bootstrap-Iconpicker -->
+    <link rel="stylesheet" href="./stylesheets/bootstrap-iconpicker.min.css" type="text/css" />
+    
+</head>
+<body ng-controller="DashboardCtrl">
+        
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid"> 	 		
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">	
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">				
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="#" >
+                <!--<i class="fa fa-plane"></i>-->
+                <img class="img-responsive" src="./images/chopp.png"/>			
+              </a>
+            </div>
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">			
+              <ul class="nav navbar-nav">					
+                <li class="active"><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="#" ng-click="openConfigOverlay()"><i class="fa fa-cogs fa-fw"></i>&nbsp; Editar Rodadas</a></li>						
+              </ul>
+              <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                  <i class="fa fa-search fa-inverse"></i>
+                  <input type="search" id="filterField" class="form-control" placeholder="Buscar..."  ng-model="filter">
+                </div>
+                </form>				
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div ng-repeat="item in listViewItems | filter: filter" class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+            <button class="square imgCenter" data-ng-style="{'background-color': item.cor}" data-ng-click="contador[item.id] = contador[item.id] + 1" data-ng-init="contador[item.id]=0">
+                <div class="content">
+                  <div class="table">
+                    <div class="table-cell numbers">	
+                      
+                      <p class="text-uppercase">{{item.nome}}</p>
+                      
+                      <div class="stacked-icons">
+                        <span class="fa-stack fa-3x">
+                          <i class="fa {{item.icone}} fa-stack-2x"></i>
+                          <strong class="fa-stack-1x fa-stack-text fa-inverse">{{contador[item.id]}}</strong>
+                        </span>
+                      </div> 					        			        	
+                    </div>
+                  </div>
+                </div>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Login Overlay modal-->	
+    <script type="text/ng-template" id="config-overlay.html">
+      <div class="modal-header">			
+        <button type="button" class="close" data-ng-click="closeModal()">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title">Configurações</h4>
+      </div>
+      <div class="modal-body">
+        <div class="well">
+          <div class="table-responsive">
+            <div class="row">
+              <div class="col-lg-12">
+                <table class="table table-striped">
+                    <thead>						
+                        <tr>						
+                            <th class="col-lg-6">
+                              &Iacute;cone/Nome 
+                              <a data-ng-click="sortBy='nome'" class="glyphicon glyphicon-chevron-down"></a><a data-ng-click="sortBy='-nome'" class="glyphicon glyphicon-chevron-up"></a>
+                            </th>				
+                            <th class="col-lg-3">
+                                Cor
+                                <a data-ng-click="sortBy='cor'" class="glyphicon glyphicon-chevron-down"></a><a data-ng-click="sortBy='-cor'" class="glyphicon glyphicon-chevron-up"></a>
+                            </th>						
+                            <th class="col-lg-3">
+                              A&ccedil;&otilde;es
+                            </th>
+                        </tr>					
+                    </thead>
+                    <tbody>					
+                        <tr data-ng-repeat="item in modalListItems track by $id(item) | orderBy:sortBy" class="animate-repeat" >						
+                            <td class="col-lg-7">
+                                <div class="input-group">
+                                    <input  type="hidden" data-ng-model="item.id" />
+                                    <input type="text" class="form-control" data-ng-model="item.nome" data-ng-disabled="disabled[$index]" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" data-search-text="Pesquisar..." data-iconset="fontawesome" data-ng-model="item.icone" data-icon="{{item.icone}}" iconpicker="iconpicker" data-ng-disabled="disabled[$index]"></button>
+                                    </span>			
+                                </div>
+                            </td>
+                            <td  class="col-lg-2">
+                                <div class="colorPicker" colorpicker="colorpicker" data-ng-class="{disabledbutton: disabled[$index]}">
+                                    <a class="color" ><div class="colorInner"></div>Cor :</a>
+                                    <div class="track" ></div>
+                                    <ul class="dropdown"><li></li></ul>
+                                    <input type="hidden" class="colorInput form-control" data-ng-model="item.cor"/>
+                                </div>
+                            </td>						
+                            <td  class="col-lg-3">							
+                                <a class="animate-hide" ng-click="updateItem($index)" ng-show="disabled[$index]"><i class="fa fa-pencil fa-fw"></i></a>  
+                                <a class="animate-hide" ng-click="saveItem($index)" ng-hide="disabled[$index]"><i class="fa fa-archive fa-fw"></i></a>
+                                <a class="animate-hide" ng-click="cancelItem($index)" ng-hide="disabled[$index]"><i class="fa fa-ban fa-fw"></i></a>                              
+                                <a class="animate-hide" ng-click="removeItem($index)" ng-hide="disabled[$index]"><i class="fa fa-times fa-fw"></i></a>
+                            </td>						
+                        </tr>
+                    </tbody>
+                </table>
+              </div><!-- col-xs-12 -->		
+              <div>
+                  <button class='btn btn-default btn-block' ng-click="addItem()"><i class="fa fa-cogs fa-fw"></i>&nbsp; Nova rodada</button>
+              </div>    		  
+            </div><!-- row -->
+          </div><!-- Table -->
+        </div><!-- well -->    
+      </div><!-- modal-body -->
+    </script>     
+          
+    
+       
+    <!-- Basic JS scripts -->
+    <script src="./javascripts/jquery.min.js"></script>
+    <script src="./javascripts/bootstrap.min.js"></script>
+    
+    <!-- Angular JS scripts -->
+    <script src="./javascripts/angularjs/1.3.0/angular.min.js"></script>    
+    <script src="./javascripts/angularjs/1.3.0/angular-resource.min.js"></script>
+    <script src="./javascripts/angularjs/1.3.0/angular-animate.js"></script>
+    <script src="./javascripts/angularjs/1.3.0/angular-touch.js"></script>
+    
+    <!-- Other Components JS scripts -->
+    <script src="./javascripts/ui-bootstrap.min.js"></script>
+    <script src="./javascripts/jquery.tinycolorpicker.min.js"></script>
+    <!-- Bootstrap-Iconpicker Iconset for Font Awesome -->
+    <script src="./javascripts/iconset/iconset-fontawesome-4.2.0.min.js"></script>
+    <!-- Bootstrap-Iconpicker -->
+    <script src="./javascripts/bootstrap-iconpicker.min.js"></script>
+      
+    <!-- Angular JS Custom scripts -->	
+    <script src= "./javascripts/indexeddb.js"></script>
+    <script src= "./javascripts/controllers.js"></script>
+    <script src= "./javascripts/filters.js"></script>
+    
+    <!-- Custom app scripts -->
+    <script src="./javascripts/custom.js"></script>
+    
+</body>
+</html>
